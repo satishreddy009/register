@@ -14,6 +14,26 @@
       </style>  
    </head>  
    <body>  
+      <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // Retrieve other form fields in a similar manner
+  
+  // Compose email message
+  $to = "satishreddyhelpdesk@gmail.com"; // Replace with your email address
+  $subject = "New Student Registration";
+  $message = "test"; // Add other fields to the message
+
+  // Send email
+  $headers = "From: satishreddyhelpdesk@gmail.com"; // Replace with your email or leave it empty
+  if (mail($to, $subject, $message, $headers)) {
+    echo "Email sent successfully!";
+  } else {
+    echo "Email sending failed!";
+  }
+}
+?>
+
 <section class="h-100 bg-dark">  
   <div class="container py-5 h-100">  
     <div class="row d-flex justify-content-center align-items-center h-100">  
@@ -30,7 +50,8 @@
             </div>  
             <div class="col-xl-6">  
               <div class="card-body p-md-5 text-black">  
-                <h3 class="mb-5 text-uppercase"> Student registration form </h3>  
+                <h3 class="mb-5 text-uppercase"> Student registration form </h3> 
+                 <form method="post">
                 <div class="row">  
                   <div class="col-md-6 mb-4">  
                     <div class="form-outline">  
@@ -136,8 +157,9 @@
                 </div>  
                 <div class="d-flex justify-content-end pt-3">  
                   <button type="button" class="btn btn-light btn-lg"> Reset all </button>  
-                  <button type="button" class="btn btn-warning btn-lg ms-2"> Submit form </button>  
-                </div>  
+                  <button type="submit" class="btn btn-warning btn-lg ms-2"> Submit form </button>  
+                </div>
+                </form>    
               </div>  
             </div>  
           </div>  
